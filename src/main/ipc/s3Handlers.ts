@@ -8,8 +8,13 @@ import {
   CopyObjectCommand,
   HeadObjectCommand,
 } from '@aws-sdk/client-s3';
+import { NodeHttpHandler } from '@smithy/node-http-handler';
+import https from 'https';
 import fs from 'fs';
 import path from 'path';
+
+// SSL bypass agent for corporate proxy with self-signed certificates
+const s3HttpAgent = new https.Agent({ rejectUnauthorized: false });
 
 interface S3Connection {
   client: S3Client;
@@ -49,6 +54,9 @@ export function registerS3Handlers(): void {
           secretAccessKey: config.secretKey,
         },
         forcePathStyle: true,
+        requestHandler: new NodeHttpHandler({
+          httpsAgent: s3HttpAgent,
+        }),
       });
 
       // Test connection by listing buckets
