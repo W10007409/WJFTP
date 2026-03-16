@@ -1,0 +1,3 @@
+This is a plain text file.
+It should only trigger a single purge for itself.
+No source parsing should happen for .txt files.

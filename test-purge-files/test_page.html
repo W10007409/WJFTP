@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>CDN Purge Test Page</title>
+  <!-- CSS: absolute path -->
+  <link rel="stylesheet" href="/CONTENT/CSS/common.css">
+  <!-- CSS: relative path -->
+  <link rel="stylesheet" href="./assets/style.css">
+  <!-- External CDN URL (should be purged) -->
+  <link rel="stylesheet" href="https://cache.wjthinkbig.com/RESOURCES/CSS/reset.css">
+</head>
+<body>
+  <h1>Purge Test</h1>
+
+  <!-- Image: absolute path -->
+  <img src="/IMAGES/banner/main_banner.png" alt="banner">
+  <!-- Image: relative path -->
+  <img src="assets/logo.png" alt="logo">
+  <!-- Image: CDN full URL -->
+  <img src="https://down.wjthinkbig.com/BOOKCLUB/IMAGES/book_cover.jpg" alt="book">
+  <!-- data-src (lazy load) -->
+  <img data-src="/CONTENT/IMAGES/lazy_img.jpg" alt="lazy">
+
+  <!-- Video poster -->
+  <video poster="/MEDIA/thumb/video_thumb.jpg">
+    <source src="/MEDIA/VIDEO/sample.mp4" type="video/mp4">
+  </video>
+
+  <!-- Script: absolute path -->
+  <script src="/JS/common.js"></script>
+  <!-- Script: relative path -->
+  <script src="./js/app.js"></script>
+  <!-- Script: CDN URL -->
+  <script src="https://cache.wjthinkbig.com/RESOURCES/JS/analytics.js"></script>
+
+  <!-- Links that should NOT be purged -->
+  <a href="mailto:test@test.com">email</a>
+  <a href="#section1">anchor</a>
+  <a href="javascript:void(0)">click</a>
+  <img src="data:image/png;base64,iVBOR...">
+</body>
+</html>
