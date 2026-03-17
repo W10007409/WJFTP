@@ -379,8 +379,8 @@ async function purgeGlobalEdgeSingle(
   const body = JSON.stringify({
     profileId,
     edgeId,
-    isWholePurge: false,
-    purgeTargetList: targetFiles,
+    purgeType: 'URL',
+    purgeTarget: targetFiles,
   });
 
   const responseText = await new Promise<string>((resolve, reject) => {
